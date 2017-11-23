@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?language Clojure?>
+
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+  <children>
+    <MenuBar VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <MenuItem fx:id="open" mnemonicParsing="false" onAction="#open_file" text="Open…" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem fx:id="save" mnemonicParsing="false" onAction="#save_data" text="Save" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem fx:id="quit" mnemonicParsing="false" onAction="#quit_app" text="Quit" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem mnemonicParsing="false" text="About This App" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+      <children>
+            <HBox prefHeight="371.0" prefWidth="640.0">
+               <children>
+                  <VBox prefHeight="371.0" prefWidth="706.0">
+                     <children>
+                        <LineChart fx:id="linechart" prefHeight="331.0" prefWidth="417.0" title="ML-ARIMA">
+                          <xAxis>
+                            <CategoryAxis side="BOTTOM" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis side="LEFT" />
+                          </yAxis>
+                        </LineChart>
+                        <ToolBar prefHeight="40.0" prefWidth="200.0">
+                          <items>
+                              <Label text="Pos" />
+                              <Slider fx:id="posslide" onSwipeLeft="#leftswipepos" onSwipeRight="#rightswipepos" />
+                              <Label text="Size" />
+                              <Slider fx:id="sizeslide" onSwipeLeft="#leftswipesize" onSwipeRight="#rightswipesize" />
+                          </items>
+                        </ToolBar>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="371.0" prefWidth="512.0">
+                     <children>
+                        <TreeView prefHeight="175.0" prefWidth="242.0" />
+                        <TableView prefHeight="200.0" prefWidth="200.0">
+                          <columns>
+                            <TableColumn prefWidth="113.0" text="Name" />
+                            <TableColumn prefWidth="119.0" text="Parameter" />
+                          </columns>
+                        </TableView>
+                        <ToolBar prefHeight="40.0" prefWidth="200.0">
+                          <items>
+                              <TextField fx:id="textfield" prefHeight="28.0" prefWidth="160.0" promptText="NAME" />
+                            <Button fx:id="addbutton" mnemonicParsing="false" onMouseClicked="#addtext" text="Add" />
+                          </items>
+                        </ToolBar>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+      </children>
+    </AnchorPane>
+  </children>
+</VBox>

@@ -1,0 +1,95 @@
+
+* functions
+
+** machine-learning
+*** data->random-forest
+     "random forest" learn some selected data.
+*** data->arima
+     "arima" learn a datum.
+
+** database
+*** sarima->db
+    "sarima" result store in db
+*** data->db
+    raw data store in db
+*** db->data
+    extract data from the database
+*** db->data-name
+    extract data-name from the database
+    if the data-name is not found, return nil
+*** db->data-list
+    extract all data-list from the database
+    
+** show
+*** show->random-forest
+    show "random forest" result in javafx's graph
+*** show->sarima
+    show "sarima" result in javafx's graph
+
+** save
+*** save-sarima
+    save "sarima" predict data into a json-format
+    ex. 1).certainty 2).coefficient
+*** save-random-forest-prop
+    save "random-forest" predict data into a json-format
+    ex. 1).impact for the data
+*** save-predict
+    save all predict data into a json-format
+    ex. 1).result of save-sarima 2).result of random-forest-prop
+*** save-data
+    save predict data into a json-format
+    ex. 2).time series data
+
+** javafx 
+*** set-title
+    set title
+*** set-graph
+    set arima or random-forest graph 
+*** set-graph-title
+    set graph title
+*** set-prop
+    set property 
+    ex. 1).certainty(arima) 2).ranking(random forest) 3).show range (x1 to x2)
+*** input-data
+    select data in an explorer
+
+* variable
+
+** atom
+   
+** ref
+   - data-list
+     for random-forest prediction ex. a-data, b-data, c-data etc...
+     - update
+       commute (no order)
+       * alter (order)
+         
+** agent
+
+* Todo List [1/18]
+:PROPERTIES:
+:COOKIE_DATA: recursive
+:END:
+** TODO get data from Quandl [1/1]
+*** DONE use clojure-quandl-apxi or clojure-quandl
+    CLOSED: [2017-11-24 金 00:20]
+** TODO create view [0/6]
+*** TODO create javafx base
+*** TODO use plotting with javafx
+*** TODO create explorer box
+*** TODO create title label
+*** TODO create save buttom
+*** TODO create property panel
+** TODO translate data for this project [/]
+
+** TODO create sarima function [0/5]
+*** TODO arima
+*** TODO sarima
+*** TODO AIC
+*** TODO result properties
+*** TODO result
+** TODO run sarima function [/]
+
+** TODO save sarima result into file [/]
+
+
