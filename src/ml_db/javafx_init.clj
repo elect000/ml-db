@@ -1,5 +1,7 @@
 (ns ml-db.javafx-init
   (:require [ml-db.core :as core])
+  (:import [javafx.stage Stage]
+           [javafx.application Application])
   (:gen-class
    :extends javafx.application.Application))
 
@@ -11,7 +13,7 @@
       (.setTitle "Test")
       (.setOnCloseRequest (core/force-exit {:root-stage? false}))
       (.setScene (core/set-scene))
-      (core/root-stage {:root-stage? false})
+      (core/data-state {:root-stage? false})
       .show)))
 
 (defn -main
